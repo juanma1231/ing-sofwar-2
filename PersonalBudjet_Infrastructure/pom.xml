@@ -18,10 +18,16 @@
     </plugins>
   </build>
   <dependencies>
+  		 <dependency>
+        	  <groupId>com.mipresupuesto.personalbudjet.entity</groupId>
+  			  <artifactId>PersonalBudjet_Entity</artifactId>
+  			  <version>0.0.1-SNAPSHOT</version>
+        </dependency>
   		<dependency>
   			  <groupId>com.mipresupuesto.personalbudjet</groupId>
 			  <artifactId>PersonalBudjet_CrossCutting</artifactId>
 			  <version>0.0.1-SNAPSHOT</version>
   		</dependency>
+  		
   </dependencies>
 </project>

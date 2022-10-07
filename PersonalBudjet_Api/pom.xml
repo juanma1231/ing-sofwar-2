@@ -38,6 +38,11 @@
 			 <artifactId>PersonalBudjet_CrossCutting</artifactId>
 			 <version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+		 	 <groupId>com.mipresupuesto.personalbudjet.dto</groupId>
+  			 <artifactId>PersonalBudjet_dto</artifactId>
+  			 <version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
