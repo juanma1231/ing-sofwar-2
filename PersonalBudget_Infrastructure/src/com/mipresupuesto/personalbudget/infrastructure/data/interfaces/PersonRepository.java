@@ -1,4 +1,4 @@
-package com.mipresupuesto.personalbudget.infrastructure.ata.interfaces;
+package com.mipresupuesto.personalbudget.infrastructure.data.interfaces;
 
 import javax.persistence.JoinColumn;
 
