@@ -2,6 +2,8 @@ package com.mipresupuesto.personalbudget.dto;
 
 import java.util.UUID;
 
+import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+
 public class PersonDTO {
 
 	private UUID id;
@@ -26,17 +28,18 @@ public class PersonDTO {
 	}
 	//Desactiva sonarlint esta vuelta cuidado
 	@SuppressWarnings("all")
-	public PersonDTO(UUID id, String idCard, String firstName, String middleName, String firstSurname,
-			String secondSurname, final String name, final String lastName, final String completeName) {
-		this.id = id;
-		this.idCard = idCard;
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.firstSurname = firstSurname;
-		this.secondSurname = secondSurname;
+	public PersonDTO(final UUID id, final String idCard, final String firstName, final String middleName, final String firstSurname,
+			final String secondSurname, final String name, final String lastName, final String completeName) {
+		setId(id);
+		setIdCard(idCard);
+		setFirstName(firstName);
+		setMiddleName(middleName);
+		setFirstSurname(firstSurname);
+		setSecondSurname(secondSurname);
+		setName(name);
+		setLastName(lastName);
+		setCompleteName(completeName);
 	}
-
-	
 	
 	public final String getName() {
 		if(name==null) {
@@ -45,13 +48,9 @@ public class PersonDTO {
 		return name.trim();
 	}
 
-
-
 	public final void setName(String name) {
 		this.name = name;
 	}
-
-
 
 	public final String getLastName() {
 		if(lastName==null) {
@@ -60,13 +59,9 @@ public class PersonDTO {
 		return lastName.trim();
 	}
 
-
-
 	public final void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
 
 	public final String getCompleteName() {
 		if(completeName==null) {
@@ -75,19 +70,18 @@ public class PersonDTO {
 		return completeName;
 	}
 
-
-
 	public final void setCompleteName(String completeName) {
 		this.completeName = completeName;
 	}
-
-
 
 	public static final PersonDTO create() {
 		return new PersonDTO();
 	}
 	
 	public final UUID getId() {
+		if(id == null) {
+			setId(UtilUUID.DEFAULT_UUID);
+		}
 		return id;
 	}
 	public final void setId(UUID id) {
@@ -123,6 +117,8 @@ public class PersonDTO {
 	public final void setSecondSurname(String secondSurname) {
 		this.secondSurname = secondSurname;
 	}
+	
+	
 	
 	
 }

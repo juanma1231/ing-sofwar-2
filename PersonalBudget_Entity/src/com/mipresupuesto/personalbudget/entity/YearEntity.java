@@ -7,14 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
+
 @Entity
-@Table(name ="Year")
-public class YearEntity {
+@Table(name = "Year")
+public final class YearEntity {
+	
 	@Id
-	@Column(name ="id")
+	@Column(name = "id")
 	private UUID id;
 	@Column(name = "year")
 	private int year;
@@ -28,19 +28,19 @@ public class YearEntity {
 		return new YearEntity();
 	}
 	
-	public YearEntity(UUID id, int year) {
-		this.id = id;
-		this.year = year;
+	public YearEntity(final UUID id, final int year) {
+		setId(id);
+		setYear(year);
 	}
 	
 	public final UUID getId() {
+		if(id == null) {
+			setId(UtilUUID.DEFAULT_UUID);
+		}
 		return id;
 	}
 
 	public final void setId(final UUID id) {
-		if(id == null) {
-			setId(UtilUUID.DEFAULT_UUID);
-		}
 		this.id = id;
 	}
 	
@@ -48,7 +48,7 @@ public class YearEntity {
 		return year;
 	}
 	
-	public final void setYear(int year) {
+	public final void setYear(final int year) {
 		this.year = year;
 	}
 	

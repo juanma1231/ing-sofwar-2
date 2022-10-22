@@ -9,12 +9,12 @@ public final class YearDomain {
 	private  UUID id;
 	private int year;
 	
-	private YearDomain(UUID id, int year) {
-		this.id = id;
-		this.year = year;
+	private YearDomain(final UUID id, final int year) {
+		setId(id);
+		setYear(year);
 	}
 	
-	public static YearDomain create(UUID id, int year) {
+	public static final YearDomain create(final UUID id, final int year) {
 		return new YearDomain(id, year);
 	}
 	
@@ -22,7 +22,7 @@ public final class YearDomain {
 		this.id = (id== null) ? UtilUUID.DEFAULT_UUID : id;
 	}
 
-	private final void setYear(int year) {
+	private final void setYear(final int year) {
 		this.year = year;
 	}
 
@@ -33,6 +33,5 @@ public final class YearDomain {
 	public final int getYear() {
 		return year;
 	}
-	
 	
 }
