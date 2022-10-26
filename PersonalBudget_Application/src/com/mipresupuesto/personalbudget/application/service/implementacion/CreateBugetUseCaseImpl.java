@@ -13,16 +13,17 @@ import com.mipresupuesto.personalbudget.infrastructure.data.interfaces.BuddgetRe
 
 @Service
 @Transactional
-public class CreateBugetUseCaseImpl implements CreateBudgetUseCase{
+public class CreateBugetUseCaseImpl implements CreateBudgetUseCase {
 
 	@Autowired
 	private EntityAssembler<BudgetEntity, BudgetDomain> entityAssembler;
-	
 	@Autowired
 	private BuddgetRepository budgetRepository;
-	
+
 	@Override
-	public void execute(final BudgetDomain budget) {
-		budgetRepository.save(entityAssembler.(budget));
+	public void execute(BudgetDomain budget) {
+		budgetRepository.save(entityAssembler.assembleEntity(budget));
+
 	}
+
 }

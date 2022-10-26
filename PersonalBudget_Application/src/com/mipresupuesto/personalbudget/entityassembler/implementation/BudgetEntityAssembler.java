@@ -16,7 +16,7 @@ public class BudgetEntityAssembler implements EntityAssembler<BudgetEntity, Budg
 	}
 
 	@Override
-	public BudgetEntity assembleDTO(BudgetDomain domain) {
+	public BudgetEntity assembleEntity(BudgetDomain domain) {
 		// TODO Auto-generated method stub
 		return null;
 	}

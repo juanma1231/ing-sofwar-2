@@ -10,46 +10,41 @@ import javax.persistence.Table;
 import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
 
 @Entity
-@Table(name = "Year")
+@Table(name="Year")
 public final class YearEntity {
-	
 	@Id
-	@Column(name = "id")
+	@Column(name="id")
 	private UUID id;
-	@Column(name = "year")
+	@Column(name="year")
 	private int year;
-	
+
 	public YearEntity() {
 		setId(UtilUUID.DEFAULT_UUID);
 		setYear(0);
 	}
-	
-	public static final YearEntity create() {
-		return new YearEntity();
-	}
-	
-	public YearEntity(final UUID id, final int year) {
+
+	public YearEntity(UUID id, int year) {
 		setId(id);
 		setYear(year);
 	}
-	
+
 	public final UUID getId() {
-		if(id == null) {
-			setId(UtilUUID.DEFAULT_UUID);
-		}
 		return id;
 	}
 
 	public final void setId(final UUID id) {
-		this.id = id;
+		this.id = UtilUUID.getDefaultUUID(id);
 	}
-	
+
 	public final int getYear() {
+		if (year < 0) {
+			setYear(0);
+		}
 		return year;
 	}
-	
+
 	public final void setYear(final int year) {
 		this.year = year;
 	}
-	
+
 }

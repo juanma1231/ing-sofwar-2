@@ -1,4 +1,4 @@
-package com.mipresupuesto.personalBudget.adapter.init;
+package com.mipresupuesto.personalbudget.adapter.init;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

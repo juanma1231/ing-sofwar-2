@@ -9,100 +9,117 @@ import javax.persistence.Table;
 
 import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
 
+
 @Entity
-@Table(name = "Person")
+@Table(name ="Person")
 public class PersonEntity {
-	
 	@Id
-	@Column(name = "id")
+	@Column(name="id")
 	private UUID id;
-	@Column(name = "idCard")
+	@Column(name="idCard")
 	private String idCard;
-	@Column(name = "firstName")
+	@Column(name="firstName")
 	private String firstName;
-	@Column(name = "middleName")
+	@Column(name="middleName")
 	private String middleName;
-	@Column(name = "firstSurname")
-	private String firstSurname;
-	@Column(name = "secondSurname")
-	private String secondSurname;
-	
+	@Column(name="lastName")
+	private String lastName;
+	private String name;
+	private String completeName;
+
 	public PersonEntity() {
 		setId(UtilUUID.DEFAULT_UUID);
 		setIdCard("");
 		setFirstName("");
 		setMiddleName("");
-		setFirstSurname("");
-		setSecondSurname("");
+		setLastName("");
+		setName("");
+		setCompleteName("");
 	}
-	//Desactiva sonarlint esta vuelta cuidado
-	@SuppressWarnings("all")
-	public PersonEntity(UUID id, String idCard, String firstName, String middleName, String firstSurname,
-			String secondSurname) {
-		setId(id);
+
+	public PersonEntity(final String idCard, final String firstName, final String middleName, final String lastName,
+			final String name, final String completeName) {
 		setIdCard(idCard);
 		setFirstName(firstName);
 		setMiddleName(middleName);
-		setFirstSurname(firstSurname);
-		setSecondSurname(secondSurname);
+		setLastName(lastName);
+		setName(name);
+		setCompleteName(completeName);
 	}
 
-	public static final PersonEntity create() {
-		return new PersonEntity();
-	}
-	
 	public final UUID getId() {
-		if(id == null) {
-			setId(UtilUUID.DEFAULT_UUID);
-		}
 		return id;
 	}
+
 	public final void setId(final UUID id) {
-		this.id = id;
+		this.id = UtilUUID.getDefaultUUID(id);
 	}
+
 	public final String getIdCard() {
 		if (idCard == null) {
 			setIdCard("");
 		}
-		return idCard;
+		return idCard.trim();
 	}
+
 	public final void setIdCard(final String idCard) {
 		this.idCard = idCard;
 	}
+
 	public final String getFirstName() {
 		if (firstName == null) {
 			setFirstName("");
 		}
-		return firstName;
+		return firstName.trim();
 	}
+
 	public final void setFirstName(final String firstName) {
 		this.firstName = firstName;
 	}
+
 	public final String getMiddleName() {
 		if (middleName == null) {
 			setMiddleName("");
 		}
-		return middleName;
+		return middleName.trim();
 	}
+
 	public final void setMiddleName(final String middleName) {
 		this.middleName = middleName;
 	}
-	public final String getFirstSurname() {
-		if (firstSurname == null) {
-			setFirstSurname("");
+
+	public final String getLastName() {
+		if (lastName == null) {
+			setLastName("");
 		}
-		return firstSurname;
+		return lastName.trim();
 	}
-	public final void setFirstSurname(final String firstSurname) {
-		this.firstSurname = firstSurname;
+
+	public final void setLastName(final String lastName) {
+		this.lastName = lastName;
 	}
-	public final String getSecondSurname() {
-		if (secondSurname == null) {
-			setSecondSurname("");
+
+	public String getName() {
+		if (name == null) {
+			setName("");
 		}
-		return secondSurname;
+		return name.trim();
 	}
-	public final void setSecondSurname(final String secondSurname) {
-		this.secondSurname = secondSurname;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
+	public String getCompleteName() {
+		if (completeName == null) {
+			setCompleteName("");
+		}
+		return completeName.trim();
+	}
+
+	public void setCompleteName(String completeName) {
+		this.completeName = completeName;
+	}
+
 }
+

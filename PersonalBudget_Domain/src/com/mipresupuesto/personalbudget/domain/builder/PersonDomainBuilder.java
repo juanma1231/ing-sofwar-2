@@ -6,89 +6,95 @@ import com.mipresupuesto.personalbudget.domain.PersonDomain;
 import java.util.UUID;
 
 public class PersonDomainBuilder {
-	
+
 	private UUID id;
 	private String idCard;
 	private String firstName;
 	private String middleName;
+	private String lastName;
 	private String firstSurname;
 	private String secondSurname;
-	private String lastName;
+
+
 	private PersonDomainBuilder() {
-		setId(UtilUUID.DEFAULT_UUID);
-		setidCard("");
-		setfirstName("");
-		setmiddleName("");
-		setfirstSurname("");
-		setsecondSurname("");
+		setId(UUID.randomUUID());
+		setIdCard("");
+		setFirstName("");
+		setMiddleName("");
+		setLastName("");
 	}
-	
+
 	public static final PersonDomainBuilder get() {
 		return new PersonDomainBuilder();
 	}
-	
-	public final PersonDomainBuilder setId(UUID id) {
-		this.id = (id== null) ? UtilUUID.DEFAULT_UUID : id;
-		return this;
-	}
-	
-	public final PersonDomainBuilder setidCard(String idCard) {
-		this.idCard = (idCard == null) ? "" : idCard.trim(); 
-		return this;
-	}
-	
-	public final PersonDomainBuilder setfirstName(String firstName) {
-		this.firstName = (firstName == null) ? "" : firstName.trim();
-		return this;
-	}
-	
-	public final PersonDomainBuilder setmiddleName(String middleName) {
-		this.middleName = (middleName == null) ? "" : middleName.trim(); 
-		return this;
-	}
-	
-	public final PersonDomainBuilder setfirstSurname(String firstSurname) {
-		this.firstSurname = (firstSurname == null) ? "" : firstSurname.trim(); 
-		return this;
-	}
-	
-	public final PersonDomainBuilder setsecondSurname(String secondSurname) {
-		this.secondSurname = (secondSurname == null) ? "" : secondSurname.trim(); 
-		return this;
-	}
-	public final String setLastName() {
-		return getFirstSurname() + " " + getSecondSurname();
-	}
-	
-	public final String setName() {
-		return (getFirstName() + " " + getMiddleName().trim() + " " + getLastName());
-	}
-	
-	
-	public final String getFirstName() {
-		return firstName;
-	}
 
-	public final String getLastName() {
-		return lastName;
+	private final UUID getId() {
+		return id;
 	}
-
-
-	public final String getMiddleName() {
-		return middleName;
-	}
-
 
 	public final String getFirstSurname() {
 		return firstSurname;
 	}
 
+	public final void setFirstSurname(String firstSurname) {
+		this.firstSurname = firstSurname;
+	}
 
 	public final String getSecondSurname() {
 		return secondSurname;
 	}
 
-	public PersonDomain build() {
-		return PersonDomain.create(id, idCard, firstName, middleName, firstSurname, secondSurname);
+	public final void setSecondSurname(String secondSurname) {
+		this.secondSurname = secondSurname;
 	}
+
+	public final PersonDomainBuilder setId(UUID id) {
+		this.id = (id == null) ? UUID.randomUUID() : id;
+		return this;
+
+	}
+
+	private final String getIdCard() {
+		return idCard;
+	}
+
+	public final PersonDomainBuilder setIdCard(String idCard) {
+		this.idCard = idCard == null ? "" : idCard.trim();
+		return this;
+
+	}
+
+	private final String getFirstName() {
+		return firstName;
+	}
+
+	public final PersonDomainBuilder setFirstName(String firstName) {
+		this.firstName = firstName == null ? "" : firstName.trim();
+		return this;
+
+	}
+
+	private final String getMiddleName() {
+		return middleName;
+	}
+
+	public final PersonDomainBuilder setMiddleName(String middleName) {
+		this.middleName = middleName == null ? "" : middleName.trim();
+		return this;
+
+	}
+
+	private final String getLastName() {
+		return lastName;
+	}
+
+	public final PersonDomainBuilder setLastName(String lastName) {
+		this.lastName = lastName == null ? "" : lastName.trim();
+		return this;
+	}
+
+	public PersonDomain build() {
+		return PersonDomain.build(getId(), getIdCard(), getFirstName(), getMiddleName(), getLastName());
+	}
+
 }

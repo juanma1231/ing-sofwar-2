@@ -5,6 +5,7 @@
     <fullyQualifiedTypeName name="java.util.UUID"/>
     <fullyQualifiedTypeName name="com.mipresupuesto.personalbudget.domain.builder.YearDomainBuilder"/>
     <fullyQualifiedTypeName name="com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID"/>
-    <fullyQualifiedTypeName name="com.mipresupuesto.personalbudget.application.dtoassembler.DTOAssembler"/>
-    <fullyQualifiedTypeName name="com.mipresupuesto.personalbudget.domain.PersonDomain"/>
+    <fullyQualifiedTypeName name="com.mipresupuesto.personalbudget.application.entityassembler.EntityAssembler"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="com.mipresupuesto.personalbudget.infrastructure.data.interfaces.BuddgetRepository"/>
 </qualifiedTypeNameHistroy>

@@ -1,4 +1,4 @@
-package com.mipresupuesto.personalBudget.controller;
+package com.mipresupuesto.personalbudget.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +25,6 @@ public class BudgetController {
 	
 	@GetMapping
 	public String saludar() {
-		return "Hola Mundo!!!";
+		return "Hola Mundo!!";
 	}
 }

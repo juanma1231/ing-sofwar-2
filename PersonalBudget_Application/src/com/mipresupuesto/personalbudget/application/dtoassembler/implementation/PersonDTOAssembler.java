@@ -1,5 +1,6 @@
 package com.mipresupuesto.personalbudget.application.dtoassembler.implementation;
 
+import org.springframework.stereotype.Component;
 
 import com.mipresupuesto.personalbudget.application.dtoassembler.DTOAssembler;
 import com.mipresupuesto.personalbudget.crosscutting.util.object.UtilObject;
@@ -7,6 +8,8 @@ import com.mipresupuesto.personalbudget.domain.PersonDomain;
 import com.mipresupuesto.personalbudget.domain.builder.PersonDomainBuilder;
 import com.mipresupuesto.personalbudget.dto.PersonDTO;
 
+
+@Component
 public class PersonDTOAssembler implements DTOAssembler<PersonDTO, PersonDomain> {
 
 	@Override
@@ -15,10 +18,10 @@ public class PersonDTOAssembler implements DTOAssembler<PersonDTO, PersonDomain>
 		
 		if(UtilObject.getUtilObject().isNull(domain)) {
 			domain = PersonDomainBuilder.get().setId(dto.getId())
-											  .setLastName()
-											  .setfirstName(dto.getFirstName())
+											  .setLastName(dto.getIdCard())
+											  .setFirstName(dto.getFirstName())
 											  .setLastName(dto.getLastName())
-											  .setmiddleName(dto.getMiddleName())
+											  .setMiddleName(dto.getMiddleName())
 											  .build();
 		}
 		return domain;
