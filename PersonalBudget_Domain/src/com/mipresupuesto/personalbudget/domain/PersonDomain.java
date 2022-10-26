@@ -12,6 +12,9 @@ public class PersonDomain {
 	private String middleName;
 	private String firstSurname;
 	private String secondSurname;
+	private String lastName;
+	private String name;
+	private String completeName;
 	
 	private PersonDomain(final UUID id, final String idCard, final String firstName, 
 			final String middleName, final String firstSurname, final String secondSurname) {
@@ -72,17 +75,23 @@ public class PersonDomain {
 		return firstSurname;
 	}
 	
+	public final String getLastName() {
+		return lastName;
+	}
+
+
 	public final String getSecondSurname() {
 		return secondSurname;
 	}
-	
-	public final String getLastName() {
-		return getFirstSurname() + " " + getSecondSurname();
-	}
-	
 	public final String getName() {
-		return (getFirstName() + " " + getMiddleName().trim() + " " + getLastName());
+		return name;
+	}
+	public final String getCompleteName() {
+		return completeName;
 	}
 	
+	
+	
+
 }
 

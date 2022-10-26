@@ -13,7 +13,7 @@ public class PersonDomainBuilder {
 	private String middleName;
 	private String firstSurname;
 	private String secondSurname;
-	
+	private String lastName;
 	private PersonDomainBuilder() {
 		setId(UtilUUID.DEFAULT_UUID);
 		setidCard("");
@@ -56,7 +56,38 @@ public class PersonDomainBuilder {
 		this.secondSurname = (secondSurname == null) ? "" : secondSurname.trim(); 
 		return this;
 	}
+	public final String setLastName() {
+		return getFirstSurname() + " " + getSecondSurname();
+	}
 	
+	public final String setName() {
+		return (getFirstName() + " " + getMiddleName().trim() + " " + getLastName());
+	}
+	
+	
+	public final String getFirstName() {
+		return firstName;
+	}
+
+	public final String getLastName() {
+		return lastName;
+	}
+
+
+	public final String getMiddleName() {
+		return middleName;
+	}
+
+
+	public final String getFirstSurname() {
+		return firstSurname;
+	}
+
+
+	public final String getSecondSurname() {
+		return secondSurname;
+	}
+
 	public PersonDomain build() {
 		return PersonDomain.create(id, idCard, firstName, middleName, firstSurname, secondSurname);
 	}
