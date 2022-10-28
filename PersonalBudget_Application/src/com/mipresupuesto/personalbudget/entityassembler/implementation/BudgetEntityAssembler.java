@@ -7,7 +7,7 @@ import com.mipresupuesto.personalbudget.domain.BudgetDomain;
 import com.mipresupuesto.personalbudget.entity.BudgetEntity;
 
 @Component
-public class BudgetEntityAssembler implements EntityAssembler<BudgetEntity, BudgetDomain>{
+public class BudgetEntityAssembler implements EntityAssembler<BudgetEntity, BudgetDomain> {
 
 	@Override
 	public BudgetDomain asssembleDomain(BudgetEntity entity) {

@@ -3,24 +3,22 @@ package com.mipresupuesto.personalbudget.entityassembler.implementation;
 import org.springframework.stereotype.Component;
 
 import com.mipresupuesto.personalbudget.application.entityassembler.EntityAssembler;
-import com.mipresupuesto.personalbudget.domain.BudgetDomain;
-import com.mipresupuesto.personalbudget.entity.BudgetEntity;
+import com.mipresupuesto.personalbudget.domain.PersonDomain;
+import com.mipresupuesto.personalbudget.entity.PersonEntity;
 
 @Component
-public class PersonEntityAssembler implements EntityAssembler<BudgetEntity, BudgetDomain> {
+public class PersonEntityAssembler implements EntityAssembler<PersonEntity, PersonDomain> {
 
 	@Override
-	public BudgetDomain asssembleDomain(BudgetEntity entity) {
+	public PersonDomain asssembleDomain(PersonEntity entity) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public BudgetEntity assembleEntity(BudgetDomain domain) {
+	public PersonEntity assembleEntity(PersonDomain domain) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 
 }

@@ -17,6 +17,7 @@ public class CreateBugetUseCaseImpl implements CreateBudgetUseCase {
 
 	@Autowired
 	private EntityAssembler<BudgetEntity, BudgetDomain> entityAssembler;
+
 	@Autowired
 	private BuddgetRepository budgetRepository;
 
