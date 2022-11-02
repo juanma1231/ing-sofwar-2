@@ -11,114 +11,128 @@ import com.mipresupuesto.personalbudget.crosscutting.utils.UtilUUID;
 
 
 @Entity
-@Table(name ="Person")
+@Table(name = "Person")
 public final class PersonEntity {
 	@Id
-	@Column(name="id")
+	@Column(name = "id")
 	private UUID id;
-	@Column(name="idCard")
+	@Column(name = "idCard")
 	private String idCard;
-	@Column(name="firstName")
+	@Column(name = "firstName")
 	private String firstName;
-	@Column(name="middleName")
+	@Column(name = "middleName")
 	private String middleName;
-	@Column(name="lastName")
+	@Column(name = "lastName")
 	private String lastName;
+	@Column(name = "firstSurname")
+	private String firstSurname;
+	@Column(name = "secondSurname")
+	private String secondSurname;
 	private String name;
 	private String completeName;
 
-	public PersonEntity() {
+	public PersonEntity(){
 		setId(UtilUUID.DEFAULT_UUID);
-		setIdCard("");
 		setFirstName("");
+		setIdCard("");
 		setMiddleName("");
-		setLastName("");
+		setFirstSurname("");
+		setSecondSurname("");
 		setName("");
-		setCompleteName("");
+		setLastName("");
+		
 	}
 
-	public PersonEntity(final String idCard, final String firstName, final String middleName, final String lastName,
-			final String name, final String completeName) {
-		setIdCard(idCard);
+	public PersonEntity(UUID id, String idCard, String firstName, String middleName, 
+			String fisrstSurname, String secondSurname, String name, String lastName, String completeName) {
+		setId(id);
 		setFirstName(firstName);
+		setIdCard(idCard);
 		setMiddleName(middleName);
-		setLastName(lastName);
+		setFirstSurname(fisrstSurname);
+		setSecondSurname(secondSurname);
 		setName(name);
+		setLastName(lastName);
 		setCompleteName(completeName);
 	}
-
-	public final UUID getId() {
-		return id;
+	
+	public static final PersonEntity create() {
+		return new PersonEntity();
 	}
-
-	public final void setId(final UUID id) {
-		this.id = UtilUUID.getDefaultUUID(id);
+	
+	
+	
+	//sets
+	public final void setId(UUID id) {
+		this.id = id;
 	}
-
-	public final String getIdCard() {
-		if (idCard == null) {
-			setIdCard("");
-		}
-		return idCard.trim();
-	}
-
-	public final void setIdCard(final String idCard) {
+	public final void setIdCard(String idCard) {
 		this.idCard = idCard;
 	}
-
-	public final String getFirstName() {
-		if (firstName == null) {
-			setFirstName("");
-		}
-		return firstName.trim();
-	}
-
-	public final void setFirstName(final String firstName) {
+	public final void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
-	public final String getMiddleName() {
-		if (middleName == null) {
-			setMiddleName("");
-		}
-		return middleName.trim();
-	}
-
-	public final void setMiddleName(final String middleName) {
+	public final void setMiddleName(String middleName) {
 		this.middleName = middleName;
 	}
-
-	public final String getLastName() {
-		if (lastName == null) {
-			setLastName("");
-		}
-		return lastName.trim();
-	}
-
-	public final void setLastName(final String lastName) {
+	public final void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-	public String getName() {
-		if (name == null) {
-			setName("");
-		}
-		return name.trim();
+	public final void setFirstSurname(String firstSurname) {
+		this.firstSurname = firstSurname;
 	}
-
-	public void setName(String name) {
+	public final void setSecondSurname(String secondSurname) {
+		this.secondSurname = secondSurname;
+	}
+	public final void setName(String name) {
 		this.name = name;
 	}
 
-	public String getCompleteName() {
-		if (completeName == null) {
-			setCompleteName("");
+	public final void setCompleteName(String completeName) {
+		this.completeName = completeName;
+	}
+	
+	
+	
+	
+	public final UUID getId() {
+		if(id == null) {
+			setId(UtilUUID.DEFAULT_UUID);
 		}
-		return completeName.trim();
+		return id;
+	}
+	public final String getIdCard() {
+		return idCard;
 	}
 
-	public void setCompleteName(String completeName) {
-		this.completeName = completeName;
+	public final String getFirstName() {
+		return firstName;
+	}
+
+	public final String getMiddleName() {
+		return middleName;
+	}
+
+	public final String getLastName() {
+		return lastName;
+	}
+
+	public final String getFirstSurname() {
+		return firstSurname;
+	}
+
+	public final String getSecondSurname() {
+		return secondSurname;
+	}
+	
+
+	public final String getName() {
+		return (getFirstName()+ " "+getMiddleName()).trim();
+	}
+	
+
+	public final String getCompleteName() {
+		return getName()+ " "+getLastName();
 	}
 
 }
