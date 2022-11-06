@@ -1,38 +1,45 @@
 package com.mipresupuesto.personalbudget.controller.response;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Response {
+import com.mipresupuesto.personalbudget.controller.response.dto.Message;
+
+public class Response<D> {
+
 	private List<D> data;
 	private List<Message> messages;
 	
-	public Response{
+	public Response(){
 		super();
 	}
+	
 	public void addMessage(final Message message) {
-		
-	}
-	public List<Message> getMessages(){
-		if(messages == null) {
-			this.messages=new ArrayList();
-		}
-		
-	}
-	public final List<D> getData(){
-		if(data == null)
-		{
-			this.data = new ArrayList<>();
-		}
-	}
-	public final void setData(List<D> data) {
-		if(data == null) {
-			this.data = new ArrayList<>();
-			
-		}
-		else {
-			this.data = data;
+		if(message != null) {
+			getMessages().add(message);
 		}
 	}
 	
-
+	public final List<D> getData(){
+		if(data == null) {
+			this.data = new ArrayList<>();
+		}
+		return data;
+	}
+	
+	public List<Message> getMessages(){
+		if(messages == null) {
+			this.messages = new ArrayList<>();
+		}
+		
+		return messages;
+	}
+	
+	public final void setData(List<D> data) {
+		if(data == null) {
+			this.data = new ArrayList<>();
+		}else {
+			this.data = data;
+		}
+	}
 }
